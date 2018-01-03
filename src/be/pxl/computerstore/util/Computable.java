@@ -6,7 +6,7 @@ public interface Computable {
 	double totalPriceExcl();
 	
 	default double totalPriceIncl() {
-		throw new UnsupportedOperationException();
+		return totalPriceExcl() * (1 + BTW/100.0);
 	}
 	
 }

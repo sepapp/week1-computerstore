@@ -35,7 +35,7 @@ public class ComputerSystemConfigurator {
 			}
 		}
 		boolean choosePeripheral = true;
-
+		try {
 		do {
 			System.out.println("Kies een randapparaat (geef artikelnummer): ");
 			displayPeripherals();
@@ -47,7 +47,9 @@ public class ComputerSystemConfigurator {
 			System.out.println("Wil u nog een randaparaat toevoegen (j/n)?");
 			choosePeripheral = keyboard.nextLine().equals("j");
 		} while(choosePeripheral);
-		// TODO catch TooManyPeripheralsException
+		} catch(TooManyPeripheralsException e) {
+			System.out.println(e.getMessage());
+		}
 		System.out.println("De door u gekozen computer:");
 		System.out.println(computerSystem);
 		keyboard.close();
@@ -88,3 +90,4 @@ public class ComputerSystemConfigurator {
 
 	
 }
+
